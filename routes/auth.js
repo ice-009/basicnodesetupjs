@@ -95,7 +95,7 @@ authRoute.post('/refresh-token', async (req, res, next) => {
  
       await User.findByIdAndUpdate(userId, { $push: { revokedRefreshTokens: refreshToken } });
   
-      res.send('logout')
+      res.send('log')
     } catch (error) {
       next(error);
     }

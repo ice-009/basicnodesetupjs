@@ -67,10 +67,7 @@ module.exports={
         const userId = payload.aud;
   
         try {
-          // Retrieve the user document from the database
           const user = await User.findById(userId);
-  
-          // Check if the user document exists and if the refresh token is revoked
           if (!user || user.revokedRefreshTokens.includes(refreshToken)) {
             const error = new Error('Unauthorized');
             return reject(error);
